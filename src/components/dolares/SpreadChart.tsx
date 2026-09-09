@@ -215,18 +215,16 @@ export const SpreadChart: React.FC<SpreadChartProps> = ({
         <Line data={chartData} options={chartOptions} plugins={plugins} />
       </div>
 
-      <div className="data-summary-row">
-        <div>
-          Periodos ganadores CCL:
-          <br />
-          <span id="ccl-wins" style={{ color: 'var(--green)', fontWeight: 700, fontSize: '20px' }}>
+      <div className="spread-summary-grid">
+        <div className="spread-stat-card win-ccl">
+          <span className="spread-stat-label">Periodos ganadores CCL</span>
+          <span id="ccl-wins" className="spread-stat-value text-green font-tabular">
             {cclWins} Días
           </span>
         </div>
-        <div>
-          Periodos ganadores {baseNameSummary}:
-          <br />
-          <span id="base-wins" style={{ color: 'var(--red)', fontWeight: 700, fontSize: '20px' }}>
+        <div className="spread-stat-card win-base">
+          <span className="spread-stat-label">Periodos ganadores {baseNameSummary}</span>
+          <span id="base-wins" className="spread-stat-value text-red font-tabular">
             {baseWins} Días
           </span>
         </div>

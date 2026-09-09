@@ -1,4 +1,5 @@
 import React from 'react';
+import { HelpCircle } from 'lucide-react';
 import { BankLogo } from '../common/BankLogo';
 import { YieldMatrixData } from '../../types/rates';
 
@@ -91,20 +92,8 @@ export const YieldMatrix: React.FC<YieldMatrixProps> = ({ matrix }) => {
                             className={`tooltip-container ${dir}`}
                             style={{ marginLeft: 4, color: 'var(--text-muted)', cursor: 'help' }}
                           >
-                            <svg
-                              width="13"
-                              height="13"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                            >
-                              <circle cx="12" cy="12" r="10" />
-                              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                              <line x1="12" y1="17" x2="12.01" y2="17" />
-                            </svg>
-                            <div className="tooltip-text" style={{ fontWeight: 600, textAlign: 'left', minWidth: 200 }}>
+                            <HelpCircle size={13} />
+                            <div className="tooltip-text" style={{ fontWeight: 500, textAlign: 'left', minWidth: 220 }}>
                               Tasa máxima detectada.
                               <br />
                               El rendimiento varía según condiciones de la plataforma.

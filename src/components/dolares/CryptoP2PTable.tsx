@@ -35,12 +35,12 @@ export const CryptoP2PTable: React.FC<CryptoP2PTableProps> = ({ exchanges }) => 
                   </div>
                 </td>
                 <td style={{ textAlign: 'center' }}>
-                  <span className={e.isMinCompra ? 'text-highlight-green' : ''}>
+                  <span className={`font-tabular ${e.isMinCompra ? 'text-highlight-green' : ''}`}>
                     {formatCurrency(e.compra_a)}
                   </span>
                 </td>
                 <td style={{ textAlign: 'center', position: 'relative' }}>
-                  <span className={e.isMaxVenta ? 'text-highlight-green' : ''}>
+                  <span className={`font-tabular ${e.isMaxVenta ? 'text-highlight-green' : ''}`}>
                     {formatCurrency(e.venta_a)}
                   </span>
                   {e.isVisualOnly && (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Landmark } from 'lucide-react';
 import { TerminalRow } from './TerminalRow';
 import { ProcessedPlazoFijo } from '../../types/rates';
 import { formatDate } from '../../utils/formatters';
@@ -11,7 +12,10 @@ export const PlazosFijos: React.FC<PlazosFijosProps> = ({ plazosFijos }) => {
   return (
     <div className="terminal-container">
       <div className="terminal-header">
-        <div className="terminal-title">🏦 Plazo Fijo</div>
+        <div className="terminal-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Landmark size={16} />
+          <span>Plazo Fijo</span>
+        </div>
         <div className="terminal-subtitle">TNA Fija, garantizada. Plazo mínimo 30 días</div>
       </div>
       <div id="ars-pf-list">

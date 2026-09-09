@@ -1,4 +1,5 @@
 import React from 'react';
+import { Compass, DollarSign } from 'lucide-react';
 import { RadarCard } from './RadarCard';
 import { InflationPanel } from './InflationPanel';
 import { HolidaysList } from './HolidaysList';
@@ -50,7 +51,10 @@ export const ResumenTab: React.FC<ResumenTabProps> = ({
       <div className="panel-ancho">
         {/* Section header */}
         <div className="radar-header">
-          <span className="radar-tag">🚀 RADAR DE INVERSIÓN</span>
+          <span className="radar-tag">
+            <Compass size={12} className="radar-tag-icon" />
+            <span>Radar de Inversión</span>
+          </span>
           <h2 className="radar-subtitle">Oportunidades destacadas del mercado</h2>
         </div>
 
@@ -61,18 +65,7 @@ export const ResumenTab: React.FC<ResumenTabProps> = ({
             label="DÓLAR MÁS BARATO"
             value={formatCurrency(quotes?.cheapestDollar?.price)}
             entityName={quotes?.cheapestDollar?.name || '...'}
-            icon={
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-              </svg>
-            }
+            icon={<DollarSign size={24} />}
           />
 
           {/* Mejor cuenta remunerada */}

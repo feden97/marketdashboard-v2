@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Activity, Info } from 'lucide-react';
 import '../../utils/chartSetup';
 import { InflationStats } from '../../types/macro';
 
@@ -192,19 +193,8 @@ export const InflationPanel: React.FC<InflationPanelProps> = ({ stats }) => {
     <div className="radar-bottom-card inflation-panel">
       <div className="radar-bottom-header" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: 4 }}>
         <h3 className="radar-bottom-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-          </svg>
-          Inflación mensual (IPC)
+          <Activity size={18} className="radar-icon-accent" />
+          <span>Inflación mensual (IPC)</span>
         </h3>
         <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>
           Cuánto subieron los precios cada mes según el INDEC.
@@ -238,7 +228,10 @@ export const InflationPanel: React.FC<InflationPanelProps> = ({ stats }) => {
         </div>
 
         <div className="inf-footer-card">
-          📌 Algo que costaba $10.000 hace un año, hoy cuesta <strong>{formattedPurchasingPower}</strong>.
+          <Info size={16} style={{ flexShrink: 0, color: 'var(--accent)', marginTop: 2 }} />
+          <span>
+            Algo que costaba $10.000 hace un año, hoy cuesta <strong>{formattedPurchasingPower}</strong>.
+          </span>
         </div>
       </div>
     </div>

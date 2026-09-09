@@ -1,4 +1,5 @@
 import React from 'react';
+import { TrendingUp } from 'lucide-react';
 import { TerminalRow } from './TerminalRow';
 import { ProcessedFci } from '../../types/rates';
 
@@ -10,7 +11,10 @@ export const FciFunds: React.FC<FciFundsProps> = ({ fcis }) => {
   return (
     <div className="terminal-container">
       <div className="terminal-header">
-        <div className="terminal-title">📊 Fondos Comunes de Inversión</div>
+        <div className="terminal-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <TrendingUp size={16} />
+          <span>Fondos Comunes de Inversión</span>
+        </div>
         <div className="terminal-subtitle">
           TNA Variable. Retiro de saldo variable (inmediato o T+1)
         </div>

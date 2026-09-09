@@ -1,4 +1,5 @@
 import React from 'react';
+import { HelpCircle } from 'lucide-react';
 import { VarBadge, BrechaBadge } from '../common/Badge';
 import { formatCurrency } from '../../utils/formatters';
 import { ProcessedFiatQuotes } from '../../services/quotesService';
@@ -62,8 +63,8 @@ export const DollarQuotesTable: React.FC<DollarQuotesTableProps> = ({
 
             return (
               <tr key={key}>
-                <td style={{ color: 'var(--text-muted)', textTransform: 'uppercase' }}>{name}</td>
-                <td style={{ fontWeight: 'bold' }}>{formatCurrency(rowData.price)}</td>
+                <td style={{ color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>{name}</td>
+                <td style={{ fontWeight: 600 }} className="font-tabular">{formatCurrency(rowData.price)}</td>
                 <td>
                   <VarBadge value={rowData.var} />
                 </td>
@@ -74,32 +75,20 @@ export const DollarQuotesTable: React.FC<DollarQuotesTableProps> = ({
 
           {/* USDT Row */}
           <tr>
-            <td style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <td style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
               USDT
               <div
                 className="tooltip-container tooltip-right"
                 style={{ marginLeft: 4, color: 'var(--text-muted)', cursor: 'help' }}
               >
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                <div className="tooltip-text" style={{ fontWeight: 600, textAlign: 'left', minWidth: 200 }}>
+                <HelpCircle size={13} />
+                <div className="tooltip-text" style={{ fontWeight: 500, textAlign: 'left', minWidth: 220 }}>
                   Es el dólar cripto que cotiza las 24 horas TODOS los días. Es el precio para comprar USDT en
                   Binance p2p más aproximado posible sin la opción "comerciantes verificados".
                 </div>
               </div>
             </td>
-            <td style={{ fontWeight: 'bold' }}>{formatCurrency(maxVentaUsdt)}</td>
+            <td style={{ fontWeight: 600 }} className="font-tabular">{formatCurrency(maxVentaUsdt)}</td>
             <td>
               <VarBadge value={usdtVar} />
             </td>

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
+import { LineChart, Table as TableIcon } from 'lucide-react';
 import '../../utils/chartSetup';
 import { SpeedometerGauge } from './SpeedometerGauge';
 import { formatCurrency } from '../../utils/formatters';
@@ -244,45 +245,56 @@ export const BandasSection: React.FC<BandasSectionProps> = ({
         <div
           style={{
             backgroundColor: 'var(--bg-card-solid)',
-            borderRadius: 'var(--radius-md)',
+            borderRadius: 'var(--radius-pill)',
             border: '1px solid var(--border-color)',
-            display: 'flex',
-            overflow: 'hidden',
-            padding: '4px',
-            gap: '4px',
+            display: 'inline-flex',
+            padding: '3px',
+            gap: '2px',
           }}
         >
           <button
             onClick={() => setView('chart')}
             type="button"
+            className="toggle-pill-btn"
             style={{
               backgroundColor: view === 'chart' ? 'var(--bg-card-hover)' : 'transparent',
               color: view === 'chart' ? 'var(--text-main)' : 'var(--text-muted)',
-              border: 'none',
-              padding: '8px 16px',
+              border: view === 'chart' ? '1px solid var(--border-hover)' : '1px solid transparent',
+              padding: '6px 14px',
               cursor: 'pointer',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: view === 'chart' ? 600 : 500,
-              borderRadius: '8px',
+              borderRadius: 'var(--radius-pill)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s ease',
             }}
           >
-            Gráfico
+            <LineChart size={13} />
+            <span>Gráfico</span>
           </button>
           <button
             onClick={() => setView('table')}
             type="button"
+            className="toggle-pill-btn"
             style={{
               backgroundColor: view === 'table' ? 'var(--bg-card-hover)' : 'transparent',
               color: view === 'table' ? 'var(--text-main)' : 'var(--text-muted)',
-              border: 'none',
-              padding: '8px 16px',
+              border: view === 'table' ? '1px solid var(--border-hover)' : '1px solid transparent',
+              padding: '6px 14px',
               cursor: 'pointer',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: view === 'table' ? 600 : 500,
-              borderRadius: '8px',
+              borderRadius: 'var(--radius-pill)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s ease',
             }}
           >
-            Tabla
+            <TableIcon size={13} />
+            <span>Tabla</span>
           </button>
         </div>
       </div>
@@ -311,21 +323,21 @@ export const BandasSection: React.FC<BandasSectionProps> = ({
               }}
             >
               <tr>
-                <th style={{ padding: '8px' }}>Fecha</th>
-                <th style={{ padding: '8px' }}>Mayorista</th>
-                <th style={{ padding: '8px' }}>Techo</th>
-                <th style={{ padding: '8px' }}>Piso</th>
+                <th style={{ padding: '8px 12px' }}>Fecha</th>
+                <th style={{ padding: '8px 12px' }}>Mayorista</th>
+                <th style={{ padding: '8px 12px' }}>Techo</th>
+                <th style={{ padding: '8px 12px' }}>Piso</th>
               </tr>
             </thead>
             <tbody>
               {tableRows.map((r, i) => (
                 <tr key={i}>
-                  <td style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{r.fecha}</td>
-                  <td style={{ color: 'var(--green)', fontWeight: 'bold' }}>
+                  <td style={{ color: 'var(--text-muted)', fontWeight: 600 }} className="font-tabular">{r.fecha}</td>
+                  <td style={{ color: 'var(--green)', fontWeight: 600 }} className="font-tabular">
                     {r.mayorista != null ? formatCurrency(r.mayorista) : '-'}
                   </td>
-                  <td style={{ color: 'var(--orange)', fontWeight: 'bold' }}>{formatCurrency(r.techo)}</td>
-                  <td style={{ color: 'var(--red)', fontWeight: 'bold' }}>{formatCurrency(r.piso)}</td>
+                  <td style={{ color: 'var(--orange)', fontWeight: 600 }} className="font-tabular">{formatCurrency(r.techo)}</td>
+                  <td style={{ color: 'var(--red)', fontWeight: 600 }} className="font-tabular">{formatCurrency(r.piso)}</td>
                 </tr>
               ))}
             </tbody>

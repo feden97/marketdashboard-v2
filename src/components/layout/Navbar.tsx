@@ -1,4 +1,5 @@
 import React from 'react';
+import { LayoutDashboard, TrendingUp, Percent, Banknote, Coins } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { ThemeMode } from '../../hooks/useTheme';
 
@@ -31,21 +32,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onSelectTab('resumen')}
             type="button"
           >
-            🏠 Resumen
+            <LayoutDashboard size={14} className="nav-tab-icon" />
+            <span>Resumen</span>
           </button>
           <button
             className={`nav-tab ${activeTab === 'argentina' ? 'active' : ''}`}
             onClick={() => onSelectTab('argentina')}
             type="button"
           >
-            🇦🇷 Dólares y Bandas
+            <TrendingUp size={14} className="nav-tab-icon" />
+            <span>Dólares y Bandas</span>
           </button>
           <button
             className={`nav-tab ${activeTab === 'tasas' ? 'active' : ''}`}
             onClick={() => onSelectTab('tasas')}
             type="button"
           >
-            💰 Tasas
+            <Percent size={14} className="nav-tab-icon" />
+            <span>Tasas</span>
           </button>
         </div>
 
@@ -61,14 +65,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onSelectTasasSubTab('pesos')}
             type="button"
           >
-            🇦🇷 Pesos (ARS)
+            <Banknote size={13} className="sub-tab-icon" />
+            <span>Pesos (ARS)</span>
           </button>
           <button
             className={`sub-tab ${activeTasasSubTab === 'cripto' ? 'active' : ''}`}
             onClick={() => onSelectTasasSubTab('cripto')}
             type="button"
           >
-            🪙 Stablecoins
+            <Coins size={13} className="sub-tab-icon" />
+            <span>Stablecoins</span>
           </button>
         </div>
       )}

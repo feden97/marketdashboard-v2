@@ -1,4 +1,5 @@
 import React from 'react';
+import { Coins } from 'lucide-react';
 import { PesosAccounts } from './PesosAccounts';
 import { PlazosFijos } from './PlazosFijos';
 import { FciFunds } from './FciFunds';
@@ -26,7 +27,7 @@ export const TasasTab: React.FC<TasasTabProps> = ({
   return (
     <div className={`tab-pane ${isActive ? 'active' : ''}`} style={{ display: isActive ? 'block' : 'none' }}>
       <div className="panel-ancho">
-        <h2 style={{ color: 'var(--text-main)', margin: '0 0 20px', fontSize: '18px', fontWeight: 600 }}>
+        <h2 style={{ color: 'var(--text-main)', margin: '0 0 20px', fontSize: '18px', fontWeight: 600, letterSpacing: '-0.5px' }}>
           Tasas de Interés y Rendimientos
         </h2>
 
@@ -56,8 +57,9 @@ export const TasasTab: React.FC<TasasTabProps> = ({
               overflow: 'hidden',
             }}
           >
-            <div className="tasas-section-title" style={{ marginBottom: '14px' }}>
-              🪙 Rendimientos en Stablecoins
+            <div className="tasas-section-title" style={{ marginBottom: '8px', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Coins size={16} />
+              <span>Rendimientos en Stablecoins</span>
             </div>
             <div className="tasas-section-sub">
               Tasas APY ofrecidas por plataformas cripto argentinas. La mejor tasa de cada moneda se destaca en

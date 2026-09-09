@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wallet } from 'lucide-react';
 import { TerminalRow } from './TerminalRow';
 import { ProcessedCuentaRemunerada } from '../../types/rates';
 
@@ -10,7 +11,10 @@ export const PesosAccounts: React.FC<PesosAccountsProps> = ({ accounts }) => {
   return (
     <div className="terminal-container">
       <div className="terminal-header">
-        <div className="terminal-title">💳 Cuentas Remuneradas y Billeteras</div>
+        <div className="terminal-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Wallet size={16} />
+          <span>Cuentas Remuneradas y Billeteras</span>
+        </div>
         <div className="terminal-subtitle">
           TNA Fija, garantizada. Ingreso y retiro de saldo inmediato. Plazo mínimo 1 día
         </div>
